@@ -1,0 +1,32 @@
+{
+  "name": "jupitertoys",
+  "version": "1.0.0",
+  "description": "Test Automation of Jupiter toys",
+  "main": "cucumber.js",
+  "scripts": {
+    "playwright:all": "mkdir e2etestresults && cucumber-js -f json:e2etestresults/report.json",
+    "playwright:each": "mkdir e2etestresults && cucumber-js cucumber -f json:e2etestresults/report_each.json -t",
+    "createHtmlReport": "node reporter.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lavanyachappa/jupitertoys.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lavanyachappa/jupitertoys/issues"
+  },
+  "homepage": "https://github.com/lavanyachappa/jupitertoys#readme",
+  "engines": {
+    "node": ">=10.17.0"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "cucumber-html-reporter": "^5.2.0",
+    "playwright": "^1.5.2",
+    "multiple-cucumber-html-reporter": "^1.18.0",
+    "@cucumber/cucumber": "^7.3.1",
+    "path": "^0.12.7"
+  }
+}

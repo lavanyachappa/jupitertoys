@@ -1,0 +1,19 @@
+image: node:10.15.3
+
+pipelines:
+  default:  
+        - step:
+            name: ExecuteQATests
+            image: mcr.microsoft.com/playwright:focal
+            caches:
+                  - node
+            script:
+              - npm ci
+              - mkdir -p e2etestresults
+              - node node_modules/playwright/install.js
+              - URL=${JUPITERTOYS_URL} BROWSERTYPE=${BROWSER} npm run playwright:all"           
+            after-script:
+              - npm run createHtmlReport
+            artifacts:
+               paths:
+                  - e2etestresults/**
